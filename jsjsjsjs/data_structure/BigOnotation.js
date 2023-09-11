@@ -1,13 +1,11 @@
 const unique = (array) => {
-    const newArray = [];
+    const onlyUniques = new Set();
 
     for (let i = 0; i < array.length; i++) {
         const ele = array[i];
-        if (!newArray.includes(ele)) {
-            newArray.push(ele);
-        }
+        onlyUniques.add(ele);
     }
-    return newArray;
+    return Array.from(onlyUniques);
 }
 
 
