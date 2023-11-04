@@ -60,6 +60,7 @@ list.append(10);
 list.append(2);
 list.print();
 
+
 const sumList1 = (head) => {
     let sum = 0;
     let curr = head;
