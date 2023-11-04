@@ -23,6 +23,27 @@ class LinkedList {                          //criando uma classe de Linked List
         curr.next = new Node(val)           //setando o next do curr que pela validação do loop é vazio como o valor do próximo nó
     }
 
+    print() {
+        let str ='';
+        let curr = this.head;               //criando método pra mostrar o prox
+        while (curr !== null) {             //enquanto curr existir, vai até o ultimo
+            str += curr.val + ' -> ';       //concatenando na string o val do curr
+            curr = curr.next;               //pula pro próximo nó
+        } 
+        console.log(str);
+    }
+
+    contains(target) {                      //criando método pra achar recebendo um valor
+        let curr = this.head;
+        while (curr !== null) {             //enquanto curr existir, vai até o ultimo
+            if(curr.val === target) {       //se o curr.val igual a entrada
+                return true;                //retorno true
+            }
+
+            curr = curr.next;
+        }
+        return false;                       //se terminou o loop e não retornou true então não existe, logo é false
+    }
 }
 
 
@@ -31,4 +52,10 @@ list.append('a');
 list.append('b');
 list.append('c');
 list.append('d');
-console.log(list.head);
+list.append(555);
+list.print();
+
+console.log(list.contains('a')); //true
+console.log(list.contains('b')); //true
+console.log(list.contains('z')); //false
+console.log(list.contains(555)); //true
