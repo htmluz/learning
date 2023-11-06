@@ -27,7 +27,8 @@ const reverse = (head) => {
     }               //um jeito melhor de entender é: Os nodes não mudam de lugar, apenas os pointers, então quando a -> b -> c -> d passa ele vira
                     //                                                                                             a <- b <- c <- d
     return prev;
-}
+}; //Time O(n)
+   //Space O(n)
 
 const print = (head) => {                   //função recursiva basica de print
     if (head === null) return;
@@ -35,7 +36,7 @@ const print = (head) => {                   //função recursiva basica de print
     print(head.next);
 }
 
-print(a)
-const newHead = reverse(a)
-console.log("~~~~~")
-print(newHead)
+print(a);
+const newHead = reverse(a);
+console.log("~~~~~");
+print(newHead);
