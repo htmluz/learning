@@ -78,4 +78,3 @@ const sumList = (head) => {
 } //O(n) time, O(n) space
 
 
-console.log(sumList(list.head));
