@@ -30,6 +30,16 @@ const reverse = (head) => {
 }; //Time O(n)
    //Space O(n)
 
+
+const reverseRecursive = (curr, prev = null) => {           //segundo argumento trabalha com um valor default
+    if (curr === null) {
+        return prev;
+    } 
+    const next = curr.next;
+    curr.next = prev;
+    return reverseRecursive(next, curr)                       //passando pra proxima iteracao o prox node e o prev o node que estou 
+}
+
 const print = (head) => {                   //função recursiva basica de print
     if (head === null) return;
     console.log(head.val);
@@ -37,6 +47,6 @@ const print = (head) => {                   //função recursiva basica de print
 }
 
 print(a);
-const newHead = reverse(a);
+const newHead = reverseRecursive(a);
 console.log("~~~~~");
 print(newHead);
