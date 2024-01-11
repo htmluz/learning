@@ -1,14 +1,12 @@
 function insertionsort(arr) {
     for (let i = 1; i < arr.length; i++) {
-        let curr = arr[i];
-        for (let j = i - 1; j > -1 && arr[j] > curr; j--) {
-
+        let curr = arr[i]; //aqui seto o curr 
+        for (var j = i - 1; j >= 0 && arr[j] > curr; j--) { //compara o curr com os valores anteriores
+            console.log(j)
+            arr[j + 1] = arr[j]; //se ele for maior vai mover ele pra frente
         }
+        arr[j + 1] = curr; //aqui o que eu copiei vira o curr, indo 1 pra tras
     }
     return arr;
 }
-
-const swap = (arr, idx1, idx2) => 
-    ([arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]]);
-
-console.log(insertionsort([4,1,87,32,12,5,321,21]))
+console.log(insertionsort([4,1,87,32,12]))
