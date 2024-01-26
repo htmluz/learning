@@ -40,6 +40,14 @@ class SinglyLinkedList {
     }
     return curr;
   }
+
+  shift() {
+    if (!this.head) return undefined;
+    let temp = this.head;
+    this.head = temp.next;
+    this.length--;
+    return temp;
+  }
 }
 
 let list = new SinglyLinkedList();
@@ -47,4 +55,5 @@ list.push(10);
 list.push(200);
 list.push(2313);
 list.push(2121);
-console.log(list.pop());
+console.log(list.shift());
+console.log(list);
