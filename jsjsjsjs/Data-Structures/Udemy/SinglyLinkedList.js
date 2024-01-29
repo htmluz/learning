@@ -81,6 +81,54 @@ class SinglyLinkedList {
     }
     return false;
   }
+
+  insert(idx, val) {
+    if (idx < 0 || idx >= this.length) return false;
+    if (idx === this.length) return !!this.push(val);
+    if (idx === 0) return !!this.unshift(val);
+    let newNode = new Node(val);
+    let prevnode = this.get(idx);
+    let nextnode = prevnode.next;
+    prevnode.next = newNode;
+    newNode.next = nextnode;
+    this.length++;
+    return true;
+  }
+
+  remove(idx) {
+    if (idx < 0 || idx > this.length) return undefined;
+    if (idx === this.length - 1) return this.pop();
+    if (idx === 0) return this.shift();
+    let prev = this.get(idx - 1);
+    let temp = this.get(idx);
+    prev.next = prev.next.next;
+    this.length--;
+    return temp.val;
+  }
+
+  print() {
+    let arr = [];
+    let curr = this.head;
+    while (curr) {
+      arr.push(curr.val);
+      curr = curr.next;
+    }
+    console.log(arr);
+  }
+
+  reverse() {
+    let node = this.head;
+    [this.head, this.tail] = [this.tail, this.head];
+    let next;
+    let prev = null;
+    for (let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
 }
 
 let list = new SinglyLinkedList();
@@ -88,6 +136,9 @@ list.push(10);
 list.push(200);
 list.push(2313);
 list.push(2121);
-console.log(list.get(2));
-console.log(list.set(2, 666));
-console.log(list.get(2));
+list.push(2711);
+list.push(2712112);
+list.push(22);
+list.print();
+list.reverse();
+list.print();
